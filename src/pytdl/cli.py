@@ -5,16 +5,12 @@ app = typer.Typer()
 
 
 @app.command()
-def url(url: str):
+def cli(url: str) -> None:
     """
     The URL of the video to download
     """
     run(url)
 
 
-def run():
-    app()
-
-
 if __name__ == "__main__":
-    run()
+    app()

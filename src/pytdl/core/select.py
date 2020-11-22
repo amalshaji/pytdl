@@ -38,7 +38,7 @@ from typing import Dict
 # )
 
 
-def generate_options(videos: Dict):
+def generate_options(videos: Dict) -> Dict:
     questions = [
         {
             "type": "list",

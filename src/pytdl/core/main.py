@@ -4,11 +4,9 @@ from yaspin import yaspin
 import urllib.parse as urlparse
 from colorama import init, Fore
 
-# from pytdl import download_file
-# from pytdl import generate_options
-
 from .download import download_file
 from .select import generate_options
+from .sanitize import sanitize_name
 
 init(autoreset=True)
 
@@ -66,7 +64,7 @@ def run(url: str):
 
         answer = generate_options(formats).get("Choose download format")
         file_format = answer.split("-")[-2]
-        filename = f"{video_title.lower().replace(' ', '_')}.{file_format.strip()}"
+        filename = f"{sanitize_name(video_title.lower())}.{file_format.strip()}"
 
         download_file(formats[answer], filename)
 

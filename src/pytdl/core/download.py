@@ -2,7 +2,7 @@ import requests
 from tqdm import tqdm
 
 
-def download_file(url, filename):
+def download_file(url, filename) -> None:
     """
     Helper method handling downloading large files from `url` to `filename`. Returns a pointer to `filename`.
     """

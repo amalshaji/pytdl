@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pytdl"
-version = "0.1.0"
-description = ""
+version = "0.1.4"
+description = "A youtube video downloader"
 authors = ["amalshaji <amalshajid@gmail.com>"]
 
 [tool.poetry.dependencies]
@@ -22,4 +22,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-pytdl = "pytdl.cli:run"
+pytdl = "pytdl.cli:app"
