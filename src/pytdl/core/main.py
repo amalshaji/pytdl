@@ -1,12 +1,13 @@
 import json
 import requests
+from uuid import uuid4
 from yaspin import yaspin
 import urllib.parse as urlparse
 from colorama import init, Fore
 
 from .download import download_file
 from .select import generate_options
-from .sanitize import sanitize_name
+from .sanitize import sanitize_name, is_english
 
 init(autoreset=True)
 
@@ -37,18 +38,27 @@ def run(url: str):
         d = urlparse.parse_qs(x).get("player_response")
         d = json.loads(d[0])
 
-        video_title = d["microformat"]["playerMicroformatRenderer"]["title"][
-            "simpleText"
-        ]
+        video_title = (
+            d.get("microformat")
+            .get("playerMicroformatRenderer")
+            .get("title")
+            .get("simpleText")
+        )
+
+        if not is_english(video_title):
+            video_title = str(uuid4())
+
         sp.write(f"✔️ Video Title: {video_title}")
 
         sp.text = "Getting Video formats"
-        f1 = d["streamingData"]["adaptiveFormats"]
-        f2 = d["streamingData"]["formats"]
+        f1 = d.get("streamingData").get("adaptiveFormats")
+        f2 = d.get("streamingData").get("formats")
 
         formats = {}
 
         for i in [f1, f2]:
+            if i is None:
+                continue
             for f in i:
                 quality = f.get("quality")
                 url = f.get("url")

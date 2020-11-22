@@ -10,7 +10,7 @@ def download_file(url, filename) -> None:
     r = requests.get(url, stream=True)
     with open(filename, "wb") as f:
         pbar = tqdm(
-            desc=filename,
+            desc="Download Progress",
             unit="B",
             total=int(r.headers["Content-Length"]),
             ncols=100,
