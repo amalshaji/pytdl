@@ -1,5 +1,4 @@
-from PyInquirer import style_from_dict
-from PyInquirer import prompt, Separator
+from PyInquirer import prompt
 from typing import Dict
 
 # custom_style_1 = style_from_dict(

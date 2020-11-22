@@ -1,5 +1,5 @@
 import typer
-from src.pytdl.pytdl import run
+from .core import run
 
 app = typer.Typer()
 
@@ -12,5 +12,9 @@ def url(url: str):
     run(url)
 
 
-if __name__ == "__main__":
+def run():
     app()
+
+
+if __name__ == "__main__":
+    run()

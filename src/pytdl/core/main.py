@@ -3,8 +3,12 @@ import requests
 from yaspin import yaspin
 import urllib.parse as urlparse
 from colorama import init, Fore
-from src.pytdl.download import download_file
-from src.pytdl.select import generate_options
+
+# from pytdl import download_file
+# from pytdl import generate_options
+
+from .download import download_file
+from .select import generate_options
 
 init(autoreset=True)
 
