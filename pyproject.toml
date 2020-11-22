@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "pytdl"
+version = "0.1.0"
+description = ""
+authors = ["amalshaji <amalshajid@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+black = "^20.8b1"
+typer = "^0.3.2"
+colorama = "^0.4.4"
+yaspin = "^1.2.0"
+PyInquirer = "^1.0.3"
+requests = "^2.25.0"
+tqdm = "^4.53.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pytdl = "pytdl.cli:app"
